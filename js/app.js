@@ -16,10 +16,6 @@ myApp.run(['$rootScope', '$location',
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-    when('/about', {
-      templateUrl: 'views/about.html',
-      controller: 'RegistrationController'
-    }).
     when('/login', {
       templateUrl: 'views/login.html',
       controller: 'RegistrationController'
@@ -28,9 +24,17 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/register.html',
       controller: 'RegistrationController'
     }).
-    when('/success', {
-      templateUrl: 'views/success.html',
-      controller: 'SuccessController',
+    when('/checkins/:uId/:mId', {
+      templateUrl: 'views/checkins.html',
+      controller: 'CheckInsController'
+    }).
+    when('/checkins/:uId/:mId/checkinsList', {
+      templateUrl: 'views/checkinslist.html',
+      controller: 'CheckInsController'
+    }).
+    when('/meetings', {
+      templateUrl: 'views/meetings.html',
+      controller: 'MeetingsController',
       resolve: {
         currentAuth: function(Authentication) {
           return Authentication.requireAuth();
