@@ -80,7 +80,7 @@ html {
 }
 
 body  {
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  font-family: Raleway, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
   line-height: 160%;
   color: #555459;
@@ -110,14 +110,14 @@ body  {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lato', serif;
+  font-family: 'Raleway', serif;
   font-weight: 100;
-  text-shadow: 1px 1px rgb(255,255,255, 1);
+
 }
 
 a {
   color: #2D8BCF;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  font-family: Raleway, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
 header {
@@ -131,7 +131,7 @@ h1{
   margin-bottom: 10px;
   padding-top: 10px;
   font-weight: 700;
-    font-family: Lato,appleLogo,sans-serif;
+    font-family: Raleway,appleLogo,sans-serif;
     margin: 0 0 1rem;
 }
 
@@ -230,8 +230,9 @@ input[type=radio] {
 }
 
 .btn-list { background-image: url(../images/icons/icon_list.png); }
-.btn-checkin { background-color: #859835; background-image: url(../images/icons/icon_checkmark.png); }
+.btn-checkin { background-color: #859835; background-image: url(../images/icons/icon_plus.png); }
 .btn-delete { background-color: #C94C24; background-image: url(../images/icons/icon_trash.png); }
+.btn-flag { background-color: #C94C24; background-image: url(../images/icons/icon_flag.png); }
 .btn-love { background-image: url(../images/icons/icon_heart.png); }
 .btn-email { background-image: url(../images/icons/icon_email.png); }
 .btn-meeting { background-image:  url(../images/icons/icon_meeting.png); }
@@ -272,7 +273,7 @@ fieldset {
   border-radius: 4px;
   text-align: left;
   font-size: 1.1rem;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  font-family: Raleway, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
 .search h2 {
@@ -303,7 +304,7 @@ fieldset {
 
 .search label {
   font-size: 1rem;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  font-family: Raleway, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   color: #576E75;
 }
 
@@ -421,7 +422,7 @@ ul.awardslist li {
   color: white;
   font-weight: normal;
   border-radius: 4px;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  font-family: Raleway, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
 ul.awardslist li:hover {
@@ -442,22 +443,22 @@ ul.awardslist li .award {
 
 nav {
   width: 100%;
-  background: #fff;
+  background: #f46524;
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
 
 .branding {
   float: left;
   margin: 20px;
+  text-align: center;
 }
 
 .branding a {
   width: 80%;
   font-size: 1.6em;
   text-align: left;
-  color: #1B7998;
+  color: #fff;
   text-decoration: none;
-  text-align: left;
 }
 
 .branding a:hover {
@@ -466,43 +467,44 @@ nav {
 
 
 nav ul {
-  width: 60%;
-  float: right;
+
 }
 
 nav ul li {
-  float: right;
-  color: #145266;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
-  margin: 10px 0;
+  color: #fff;
+  font-family: Raleway, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  margin: 0px 0;
   font-size: 1.1em;
 }
 
+
 nav ul li.user {
   background-color: #D24244;
-  color: #EFC94C;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  color: #fff;
+  font-family: Raleway, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
 nav ul li.user.hello {
   margin-left: 60px;
-  padding: 10px 15px;
+  padding: 20px 15px;
 }
 
 nav ul li a {
-  float: left;
+  float: right;
   text-decoration: none;
-  padding: 10px 15px;
+  text-align: right;
+  padding: 20px 15px;
   border-radius: 4px;
+  color: #fff;
 }
 
 nav li a:hover {
-  color: #E76C5A;
+  color: #888;
 }
 
 .userinfo {
   text-align: center;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  font-family: Raleway, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   padding-bottom: 5px;
 }
 
@@ -542,11 +544,11 @@ nav li a:hover {
 }
 
 .meetings .meeting {
-  display: inline-block;
   padding: 10px 20px 10px 15px;
   margin: 3px 10px;
   border-radius: 4px;
   border: 1px solid #C5C5C5;
+  text-align: left;
 
 
 }
@@ -557,8 +559,14 @@ nav li a:hover {
 }
 
 .meetings .meeting .text {
-  display: inline-block;
   vertical-align: bottom;
+  text-align: left;
+}
+
+
+
+.text h3 {
+  font-weight: 900;
 }
 
 .meetings .meeting .text a{
@@ -614,10 +622,8 @@ nav li a:hover {
   font-weight: bold;
   line-height: 1;
   color: #fff;
-  text-align: center;
   white-space: nowrap;
-  vertical-align: baseline;
-  background-color: #777;
+  background-color: #af481a;
   border-radius: 10px;
 }
 .badge:empty {

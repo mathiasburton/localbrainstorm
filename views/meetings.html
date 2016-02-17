@@ -1,7 +1,7 @@
 <div class="card meetings cf">
 
   <div class="textintro">
-    <h1>All Home Plans</h1>
+    <h1>All Home Challenges</h1>
     <p>Type a plan and hit +</p>
   </div><!-- textintro -->
 
@@ -12,7 +12,7 @@
 
     <div class="inputwrapper">
       <input type="text" name="meetingname"
-      placeholder="Meeting name"
+      placeholder="Add a Challenge"
       ng-model="meetingname" ng-required="true">
     </div>
 
@@ -21,23 +21,23 @@
     
   </form>
 
-  <h2>Live plans</h2>
+  <h2>Live Challenges</h2>
   <div class="meeting" ng-repeat="(key, meeting) in meetings">
-    <button class="btn btn-delete tooltip"
-      ng-click="deleteMeeting(key)">
-      <span>Delete this meeting</span>
-    </button>
+    <span class="text"><h3>{{meeting.name}}</h3></span>
+    <span class="text">{{meeting.date}}</span>
 
     <a class="btn btn-checkin tooltip" 
       href="#/checkins/{{currentUser.regUser}}/{{meeting.$id}}">
-      <span>Go to check-in URL</span></a>
+      <span>add ideas for this challenge</span></a>
 
     <a class="btn btn-list tooltip" 
       href="#/checkins/{{currentUser.regUser}}/{{meeting.$id}}/checkinsList">
-      <span>View list of checked in users</span></a>
+      <span>view list of submitted ideas</span></a>
 
+    <a class="btn btn-delete tooltip"
+      ng-click="deleteMeeting(key)">
+      <span>end this challenge</span></a>  
 
-    <span class="text">{{meeting.name}}</span>
   </div>
 
 </div><!-- meetings cf -->

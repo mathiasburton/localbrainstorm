@@ -1,7 +1,7 @@
 <div class="card checkinslist">
 
-<h1>Check-ins</h1>
-<p>Here's a list of your lastest check-ins</p>
+<h1>Challenges</h1>
+<p>Here's a list of the lastest submitted ideas</p>
 
 <div class="search cf">
   <h2>Search Checkins</h2>
@@ -42,13 +42,13 @@
   <li ng-class="checkin.userState" ng-repeat="checkin in checkins | orderBy: order:direction | filter: { $id: recordId, $: query }">
     <div class="checkin">
       <div class="buttons" ng-show="currentUser">
-        <button class="btn btn-delete tooltip"
+        <button class="btn btn-flag tooltip"
           ng-click="deleteCheckin(checkin.$id)">
-          <span>Delete this check-in</span>
+          <span>Flag this idea</span>
         </button>
         <button class="btn btn-love tooltip"
           ng-click="showLove(checkin)">
-          <span>Show the love</span>
+          <span>Show Interest</span>
         </button>
       </div><!-- buttons -->
       <div class="info">
@@ -61,7 +61,7 @@
         <form class="cf"
           ng-submit="giveLove(checkin, checkin.giftText)"
           novalidate>
-          <input type="text" name="giftText" placeholder="What are you giving them?"
+          <input type="text" name="giftText" placeholder="Tell Mat how you are interested..."
           ng-model="checkin.giftText" ng-required="true">
           <button type="submit" class="btn" ng-disabled="myform.$invalid">+</button>
         </form>
