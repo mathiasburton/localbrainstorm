@@ -8,20 +8,18 @@ var passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy;
 
 module.exports = {
+
 	login: function (req, res) {
-		console.log("in create");
-		console.log(req.body);
 		passport.authenticate('local', function(err, user, info) {
 			if(err || !user) {
-				req.session.flash = info.message;
-				return res.redirect("/"); 
+				req.addFlash("message", info.message);
+				return res.redirect("/index"); 
 				
 			} 
 			req.login(user, function (err, message) {
 				if(err) {
 					res.send(err);
 				}
-				req.session.flash = info.message;
 				req.session.user = user;
 				return res.redirect('/users')
 			
@@ -31,7 +29,7 @@ module.exports = {
 
 	logout: function (req, res) {
 		req.session.user = null;
-		req.session.flash = 'You have logged out';
+		req.addFlash("message", "You have logged out");
 		return res.redirect('/');
 	},
 
@@ -47,8 +45,8 @@ module.exports = {
 		passport.authenticate('facebook', function (err, user) {
 			if(err) {
 				console.log(err);
-				req.session.flash = err;
-				return res.redirect("/");
+				req.addFlash("message", err);
+				return res.redirect("/index");
 			} else {
 				req.session.user = user;
 				return res.redirect("/users");

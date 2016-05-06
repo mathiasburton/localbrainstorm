@@ -1,9 +1,10 @@
 <div class="row">
-	<% if(req.session.flash) { %>
-		<div class="alert alert-danger col-xs-12">
-			<p><%=req.session.flash%></p>
+	<% flash.get('message').forEach(function (message) { %>
+		<div class="alert alert-danger">
+	  		<p><strong>Oops!</strong> <%= message %></p>
+			<a role="button" class="btn btn-default" href="/">Back to Log In</a>
 		</div>
-	<% } %>
+	<%	}) %>
 	<div class="col-xs-6">
 		<h3>User Login</h3>
 		<form name ="login" action="/login" method="post">

@@ -1,0 +1,196 @@
+{
+  "data": {
+    "facebookuser": [
+      {
+        "facebookId": "10100223772790146",
+        "name": "Maitland McConnell",
+        "picture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10583910_10100186317041766_5213419239418018711_n.jpg?oh=30e3d11bbdbb03dbea47c57cdc92ab6e&oe=57B636F6",
+        "email": "maitlandm@gmail.com",
+        "createdAt": "2016-05-06T00:28:03.404Z",
+        "updatedAt": "2016-05-06T00:28:03.404Z",
+        "id": 1
+      }
+    ],
+    "user": [
+      {
+        "first_name": "Maitland",
+        "last_name": "McConnell",
+        "email": "maitlandm@gmail.com",
+        "password": "$2a$10$MV42kKRRnjybAZEkqRFeL.Orefb6ZUgfP3/JhVXLZW5guylFz43wG",
+        "confirm": "password",
+        "admin_level": 0,
+        "createdAt": "2016-05-05T23:39:21.738Z",
+        "updatedAt": "2016-05-05T23:39:21.738Z",
+        "id": 33
+      },
+      {
+        "first_name": "test",
+        "last_name": "testing",
+        "email": "test@testing.com",
+        "password": "$2a$10$4FPJBebbi/TDU/owcjnBZONbLkvB/ACnTTdfQxHst6Gxzykrv7UvC",
+        "confirm": "password",
+        "admin_level": 0,
+        "createdAt": "2016-05-05T23:41:53.959Z",
+        "updatedAt": "2016-05-05T23:41:53.959Z",
+        "id": 34
+      },
+      {
+        "first_name": "Maitland",
+        "last_name": "McConnell",
+        "email": "m@gmail.com",
+        "password": "$2a$10$7OA.L73CO0Emyqly9thnn.eTKZDbMWuB5o9Icueb7Fbs64nBb1I72",
+        "confirm": "password",
+        "admin_level": 0,
+        "createdAt": "2016-05-05T23:42:38.344Z",
+        "updatedAt": "2016-05-05T23:42:38.344Z",
+        "id": 35
+      },
+      {
+        "first_name": "testing",
+        "last_name": "testing",
+        "email": "testing@testing.com",
+        "password": "$2a$10$gaPgUtVeV27d3bEoAZqiwe3LKzc0PCvqTT8yj4EMuTTt8.upLgZBi",
+        "confirm": "password",
+        "admin_level": 0,
+        "createdAt": "2016-05-05T23:57:53.509Z",
+        "updatedAt": "2016-05-05T23:57:53.509Z",
+        "id": 36
+      },
+      {
+        "first_name": "a",
+        "last_name": "a",
+        "email": "a@a.com",
+        "password": "$2a$10$WtTlyQ0GjMRyRFieOCXQCuhDiB5k9un3JPIFE7mNCNL60S1v42DJe",
+        "confirm": "password",
+        "admin_level": 0,
+        "createdAt": "2016-05-06T00:05:19.482Z",
+        "updatedAt": "2016-05-06T00:05:19.482Z",
+        "id": 37
+      },
+      {
+        "first_name": "blah",
+        "last_name": "blah",
+        "email": "blah@blah.com",
+        "password": "$2a$10$.zF4.bL/gVuIvoMGT7hm9OLbtKtIcLCf0YvFkdh2kReg.LlVHOREi",
+        "confirm": "password",
+        "admin_level": 0,
+        "createdAt": "2016-05-06T00:06:58.562Z",
+        "updatedAt": "2016-05-06T00:06:58.562Z",
+        "id": 38
+      },
+      {
+        "first_name": "no",
+        "last_name": "angular",
+        "email": "no@angular.com",
+        "password": "$2a$10$k6SO9TIDTuZQ9zTF0GwOiuAlI4KjvG/vThvShsRhnoAGtbbwg3FA2",
+        "confirm": "password",
+        "admin_level": 0,
+        "createdAt": "2016-05-06T00:15:00.922Z",
+        "updatedAt": "2016-05-06T00:15:00.922Z",
+        "id": 39
+      },
+      {
+        "first_name": "b",
+        "last_name": "b",
+        "email": "b@b.com",
+        "password": "$2a$10$ul3Tmpxdc2wT5uzp.4gwT.P3xGCw23KRamXtYcQbXUsPNXqmpcdlG",
+        "confirmPassword": "password",
+        "createdAt": "2016-05-06T00:17:22.320Z",
+        "updatedAt": "2016-05-06T00:17:22.320Z",
+        "id": 40
+      },
+      {
+        "first_name": "Maitland",
+        "last_name": "McConnell",
+        "email": "maitlandm@gmail.com",
+        "password": "$2a$10$QA2Mhzd9Wl/KAsFl29Vn2eiz2t/vd///SwbKaJHKVopYYTDEj3PMm",
+        "confirmPassword": "password",
+        "createdAt": "2016-05-06T00:32:32.780Z",
+        "updatedAt": "2016-05-06T00:32:32.780Z",
+        "id": 41
+      },
+      {
+        "first_name": "a",
+        "last_name": "a",
+        "email": "a@a.com",
+        "password": "$2a$10$Sy8zgBt0am/P4LZ0.ktsOuxiLf6RVXRdtvAt2./yacK.gyRk0O3XS",
+        "confirmPassword": "password",
+        "createdAt": "2016-05-06T01:00:42.357Z",
+        "updatedAt": "2016-05-06T01:00:42.357Z",
+        "id": 42
+      }
+    ]
+  },
+  "schema": {
+    "facebookuser": {
+      "facebookId": {
+        "type": "string",
+        "unique": true
+      },
+      "name": {
+        "type": "string"
+      },
+      "picture": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "first_name": {
+        "type": "string"
+      },
+      "last_name": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      },
+      "admin_level": {
+        "type": "integer"
+      },
+      "created_at": {
+        "type": "datetime"
+      },
+      "updated_at": {
+        "type": "datetime"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "facebookuser": {
+      "id": 1
+    },
+    "user": {
+      "id": 42
+    }
+  }
+}

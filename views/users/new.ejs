@@ -1,60 +1,57 @@
-<div class="container" ng-controller="usersController as uc">
+<div class="container">
 	<div class="row">
 		<div class="col-xs-6">
-			<form name="register">
-				<div class = "form-group" ng-class="{'has-error':register.first_name.$invalid && register.first_name.$dirty && !uc.err }">
+			<form name="register" action ='/users' method = 'post'>
+				<div class = "form-group" ng-class="{'has-error':register.first_name.$invalid && register.first_name.$dirty}">
 					<label>First Name:</label>
-					<input type="text" ng-model="uc.new_user.first_name" name="first_name" ng-maxlength="45"required>
-					<ul class="help-block has-error" ng-if="register.first_name.$dirty && !uc.err">
+					<input type="text" name="first_name" ng-maxlength="45"required>
+					<ul class="help-block has-error" ng-if="register.first_name.$dirty">
 						<li ng-show="register.first_name.$error.required">First Name is required</li>
 						<li ng-show="register.first_name.$error.maxlength">Name can't be more than 45 characters</li>
 					</ul>
 				</div>
-				<div class="form-group" ng-class="{'has-error':register.last_name.$invalid && register.last_name.$dirty && !uc.err}">
+				<div class="form-group" ng-class="{'has-error':register.last_name.$invalid && register.last_name.$dirty}">
 					<label>Last Name:</label>
-					<input type="text" ng-model="uc.new_user.last_name" name="last_name" ng-maxlength="45"required>
-					<ul class="help-block has-error" ng-if="register.last_name.$dirty &&!uc.err">
+					<input type="text" name="last_name" ng-maxlength="45"required>
+					<ul class="help-block has-error" ng-if="register.last_name.$dirty">
 						<li ng-show="register.last_name.$error.required">Last Name is required</li>
 						<li ng-show="register.last_name.$error.maxlength">Name can't be more than 45 characters</li>
 					</ul>
 				</div>
-				<div class="form-group" ng-class="{'has-error':register.email.$invalid && register.email.$dirty && !uc.err}">
+				<div class="form-group" ng-class="{'has-error':register.email.$invalid && register.email.$dirty}">
 					<label>Email:</label>
-					<input type="email" ng-model="uc.new_user.email" name="email" required>
-					<ul class="help-block has-error" ng-if="register.email.$dirty && !uc.err">
+					<input type="email" name="email" required>
+					<ul class="help-block has-error" ng-if="register.email.$dirty">
 						<li ng-show="register.email.$error.required">Email is required</li>
 						<li ng-show="register.email.$error.email">Not a valid email address</li>
 					</ul>
 				</div>
-				<div class="form-group" ng-class="{'has-error':register.password.$invalid && password.$dirty && !uc.err}">
+				<div class="form-group" ng-class="{'has-error':register.password.$invalid && password.$dirty}">
 					<label>Password:</label>
-					<input name="password" type="password" ng-model="uc.new_user.password" ng-minlength="6" required>
-					<ul class="help-block has-error" ng-if="register.password.$dirty && !uc.err">
+					<input name="password" type="password" ng-minlength="6" required>
+					<ul class="help-block has-error" ng-if="register.password.$dirty">
 						<li ng-show="password.$error.required">Password is required</li>
 						<li ng-show="register.password.$error.minlength">Password must be at least 6 characters.</li>
 					</ul>
 				</div>
-				<div class="form-group" ng-class="{'has-error':register.confirmPassword.$invalid && confirmPassword.$dirty && !uc.err}">
+				<div class="form-group" ng-class="{'has-error':register.confirmPassword.$invalid && confirmPassword.$dirty}">
 					<label>Confirm Password:</label>
-					<input match-password="password" type="password" name="confirmPassword" ng-model="uc.new_user.confirm" required>
-					<ul class="help-block has-error" ng-if="register.confirmPassword.$dirty && !uc.err">
+					<input match-password="password" type="password" name="confirmPassword" required>
+					<ul class="help-block has-error" ng-if="register.confirmPassword.$dirty">
 						<li ng-show="register.confirmPassword.$error.required">Please retype password</li>
 						<li ng-show="register.confirmPassword.$error">Passwords must match.</li>
 					</ul>
 				</div>
-				<button class="btn btn-primary btn-lg" type="submit" ng-disabled="register.$invalid" ng-click="uc.create()">
-					 <span ng-show="!signupForm.loading">Create Account</span>
-        			<span class="overlord-loading-spinner fa fa-spinner" ng-show="signupForm.loading" ></span>
-        			<span ng-show="signupForm.loading">Preparing your new account...</span>
-				</button>
+				<button class="btn btn-primary btn-lg" type="submit" ng-disabled="register.$invalid">Create Account</button>
 			</form>
 		</div>
 		<div class="col-xs-6">
-			<div class="alert alert-danger" ng-if="uc.err">
-		  		<p><strong>Oops!</strong> {{uc.err}}</p>
-				<a role="button" class="btn btn-default" href="/">Back to Log In</a>
-			</div>
-			
+			<% flash.get('message').forEach(function (message) { %>
+				<div class="alert alert-danger">
+			  		<p><strong>Oops!</strong> <%= message %></p>
+					<a role="button" class="btn btn-default" href="/">Back to Log In</a>
+				</div>
+			<%	}) %>
 		</div>
 	</div>
 </div>

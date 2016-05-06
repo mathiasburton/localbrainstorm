@@ -47,8 +47,13 @@ module.exports = {
 
   beforeCreate: function (values, callback) {
     bcrypt.hash(values.password, 10, function (err, hash) {
-      values.password = hash;
-      callback();
+      if(err) {
+        console.log(err);
+        callback(err);
+      } else {
+        values.password = hash;
+        return callback();
+      }
     });
   }
 
