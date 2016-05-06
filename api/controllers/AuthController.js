@@ -20,10 +20,11 @@ module.exports = {
 				if(err) {
 					res.send(err);
 				}
-				req.session.user = user;
 				if(type == "user"){
+					req.session.user = user;
 					return res.redirect('/users');
 				} else {
+					req.session.org = user;
 					return res.redirect('/organizations');
 				}
 			

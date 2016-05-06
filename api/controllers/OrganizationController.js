@@ -28,7 +28,7 @@ module.exports = {
 							} else {
 								console.log(org);
 								// save the organization data in session
-								req.session.org = org.id;
+								req.session.org = org;
 								console.log(req.session.org);
 								res.redirect("/organizations");
 							}

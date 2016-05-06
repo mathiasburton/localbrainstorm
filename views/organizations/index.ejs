@@ -1,2 +1,9 @@
-<h1>Welcome</h1>
-<p><%= req.session.organization %></p>
+<h1>Welcome <%= req.session.org.name %></h1>
+
+<% if(!req.session.org.plan){
+	%>
+	<h2>No plans yet</h2>
+	<div>
+		<button class="btn btn-primary col-xs-6">Add a plan!</button>
+	</div>
+<%}%>
