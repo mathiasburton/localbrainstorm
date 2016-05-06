@@ -1,6 +1,10 @@
 var passport = require('passport'), FacebookStrategy = require('passport-facebook').Strategy, 
   LocalStrategy = require('passport-local').Strategy,
+  // TwitterStrategy = require('passport-twitter').Strategy,
   bcrypt = require('bcrypt');
+
+
+// BEGIN FACEBOOK SIGN IN
 
 function findById(id, callback) {
   FacebookUser.find(id).then(function (err, user) {
@@ -77,13 +81,37 @@ passport.use(new FacebookStrategy({
     });
   }
 ));
-// LOCAL SIGN IN
+// END FACEBOOK SIGN IN
+
+
+// TWITTER SIGN IN
+// passport.use(new TwitterStrategy({
+//     consumerKey: TWITTER_CONSUMER_KEY,
+//     consumerSecret: TWITTER_CONSUMER_SECRET,
+//     callbackURL: "http://www.example.com/auth/twitter/callback"
+//   },
+//   function(token, tokenSecret, profile, done) {
+//     User.findOrCreate(..., function(err, user) {
+//       if (err) { return done(err); }
+//       done(null, user);
+//     });
+//   }
+// ));
+
+
+
+// BEGIN LOCAL SIGN IN
 passport.use(new LocalStrategy({
 
   usernameField: 'email',
-  passwordField: 'password'
+  passwordField: 'password',
+  passReqToCallback: true
 
-}, function (email, password, callback) {
+}, function (req, email, password, callback) {
+
+// USER LOGIN
+
+  if(req.body.user == "user"){
     User.findOne({email: email}).exec(function (err, user) {
       // if there's an error 
     if(err){
@@ -92,21 +120,50 @@ passport.use(new LocalStrategy({
     }
     // if the user doesn't exist
     if(!user) {
-      return callback(null, false, {message: 'Incorrect email.'});
+      return callback(null, false, {message: 'Incorrect email.'}, 'user');
     }
     // if the user does exist, bcrypt the password
     bcrypt.compare(password, user.password, function (err,res) {
       if(!res){
         return callback(null, false, {
           message: 'Invalid password'
-        });
+        }, "user");
       }
       return callback(null, user, {
         message: 'Logged In Successfully'
-      });
+      }, "user");
     });
-  });
+  }); 
+
+
+    // ORGANIZATION LOGIN
+
+  } else {
+    Organization.findOne({email: email}).exec(function (err, org) {
+      // if there's an error 
+    if(err){
+      console.log(err);
+      return callback(err);
+    }
+    // if the org doesn't exist
+    if(!org) {
+      return callback(null, false, {message: 'Incorrect email.'}, "org");
+    }
+    // if the org does exist, bcrypt the password
+    bcrypt.compare(password, org.password, function (err,res) {
+      if(!res){
+        return callback(null, false, {
+          message: 'Invalid password'
+        }, "org");
+      }
+      return callback(null, org, {
+        message: 'Logged In Successfully'
+      }, "org");
+    });
+  }); 
+  }
 }));
+// END LOCAL LOGIN
 
 
 

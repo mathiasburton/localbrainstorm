@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<form name="register" action ='/organizations' method = 'post'>
+				<div class = "form-group" ng-class="{'has-error':register.name.$invalid && register.name.$dirty}">
+					<label>Name of Organization</label>
+					<input type="text" name="name" required>
+					<ul class="help-block has-error" ng-if="register.name.$dirty">
+						<li ng-show="register.name.$error.required">Name is required</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.email.$invalid && register.email.$dirty}">
+					<label>Email:</label>
+					<input type="email" name="email" required>
+					<ul class="help-block has-error" ng-if="register.email.$dirty">
+						<li ng-show="register.email.$error.required">Email is required</li>
+						<li ng-show="register.email.$error.email">Not a valid email address</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.password.$invalid && password.$dirty}">
+					<label>Password:</label>
+					<input name="password" type="password" ng-minlength="6" required>
+					<ul class="help-block has-error" ng-if="register.password.$dirty">
+						<li ng-show="password.$error.required">Password is required</li>
+						<li ng-show="register.password.$error.minlength">Password must be at least 6 characters.</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.confirmPassword.$invalid && confirmPassword.$dirty}">
+					<label>Confirm Password:</label>
+					<input match-password="password" type="password" name="confirmPassword" required>
+					<ul class="help-block has-error" ng-if="register.confirmPassword.$dirty">
+						<li ng-show="register.confirmPassword.$error.required">Please retype password</li>
+						<li ng-show="register.confirmPassword.$error">Passwords must match.</li>
+					</ul>
+				</div>
+				<button class="btn btn-primary btn-lg" type="submit" ng-disabled="register.$invalid">Create Account</button>
+			</form>
+		</div>
+		<div class="col-xs-6">
+			<% flash.get('message').forEach(function (message) { %>
+				<div class="alert alert-danger">
+			  		<p><strong>Oops!</strong> <%= message %></p>
+					<a role="button" class="btn btn-default" href="/">Back to Log In</a>
+				</div>
+			<%	}) %>
+		</div>
+	</div>
+</div>

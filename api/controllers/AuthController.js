@@ -10,18 +10,22 @@ var passport = require('passport'),
 module.exports = {
 
 	login: function (req, res) {
-		passport.authenticate('local', function(err, user, info) {
+		passport.authenticate('local',req.body.user, function(err, user, info, type) {
 			if(err || !user) {
 				req.addFlash("message", info.message);
 				return res.redirect("/index"); 
 				
 			} 
-			req.login(user, function (err, message) {
+			req.login(user, type, function (err, message) {
 				if(err) {
 					res.send(err);
 				}
 				req.session.user = user;
-				return res.redirect('/users')
+				if(type == "user"){
+					return res.redirect('/users');
+				} else {
+					return res.redirect('/organizations');
+				}
 			
 			})
 		})(req, res);
@@ -46,13 +50,31 @@ module.exports = {
 			if(err) {
 				console.log(err);
 				req.addFlash("message", err);
-				return res.redirect("/index");
+				return res.redirect("/");
 			} else {
 				req.session.user = user;
 				return res.redirect("/users");
 			}
 		})(req, res, callback);
 	}
+
+	// twitter: function(req, res, callback) {
+	// 	passport.authenticate('twitter', function (err, user) {
+	// 		console.log("twitter");
+	// 	})(req, res callback);
+	// },
+
+	// 'twitter/callback': function (req, res, callback) {
+	// 	passport.authenticate('twitter', function (err, user) {
+	// 		if(err){
+	// 			req.addFlash("message", err);
+	// 			return res.redirect("/");
+	// 		} else {
+	// 			req.session.user = user;
+	// 			return res.redirect("/users");
+	// 		}
+	// 	})(req, res, callback);
+	// }
 	
 	
 };

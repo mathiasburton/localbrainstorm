@@ -40,7 +40,14 @@
         <%
         }
         %>
-        <%= req.session.user %>
+
+        <!-- Check if Org is logged in -->
+        <% if(req.session.org != null) {
+        %>
+        <a href="/logout" role="button" class="btn btn-primary">Log Out</a>
+        <%
+        }
+        %>
       </div>
       <%- body %>
 
