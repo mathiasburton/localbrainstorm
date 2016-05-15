@@ -34,7 +34,7 @@
       <div class="page-header">
         <h1>Local Brainstorm <small>some tagline</small></h1>
         <!-- Check if user is logged in -->
-        <% if(req.session.user != null) {
+        <% if(req.session.user) {
         %>
         <a href="/logout" role="button" class="btn btn-primary">Log Out</a>
         <%
@@ -42,7 +42,7 @@
         %>
 
         <!-- Check if Org is logged in -->
-        <% if(req.session.org != null) {
+        <% if(req.session.org) {
         %>
         <a href="/logout" role="button" class="btn btn-primary">Log Out</a>
         <%

@@ -42,6 +42,12 @@ module.exports = {
 
     updated_at : { 
     	type: 'datetime' 
+    },
+
+    // reference to ideas
+    ideas : {
+      collection : "idea",
+      via : "author"
     }
   },
 

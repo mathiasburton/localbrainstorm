@@ -27,6 +27,12 @@ module.exports = {
 
   	organization : {
       model: 'organization'
+    },
+
+    // reference to ideas
+    ideas : {
+      collection: "idea",
+      via: "plan"
     }
   }
 };

@@ -13,6 +13,7 @@
       }
     ],
     "goal": [],
+    "idea": [],
     "organization": [
       {
         "name": "bologna",
@@ -157,6 +158,16 @@
         "createdAt": "2016-05-06T01:00:42.357Z",
         "updatedAt": "2016-05-06T01:00:42.357Z",
         "id": 42
+      },
+      {
+        "first_name": "Maitland",
+        "last_name": "McConnell",
+        "email": "m@m.com",
+        "password": "$2a$10$MvX4qEQCIM1aBoNsMr8DlOdGBmKVh57tJ/ee5EowLkc6www07QLW2",
+        "confirmPassword": "password",
+        "createdAt": "2016-05-15T20:22:00.539Z",
+        "updatedAt": "2016-05-15T20:22:00.539Z",
+        "id": 43
       }
     ]
   },
@@ -238,6 +249,74 @@
         "model": "organization",
         "foreignKey": true,
         "alias": "organization"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "idea": {
+      "title": {
+        "type": "string"
+      },
+      "content": {
+        "type": "text"
+      },
+      "implemented": {
+        "type": "boolean"
+      },
+      "expected_result": {
+        "type": "text"
+      },
+      "location": {
+        "type": "string"
+      },
+      "addition_request": {
+        "type": "boolean"
+      },
+      "addition_request_pending": {
+        "type": "boolean"
+      },
+      "addition_request_denied": {
+        "type": "boolean"
+      },
+      "addition_request_accepted": {
+        "type": "boolean"
+      },
+      "timeline": {
+        "type": "string"
+      },
+      "budget": {
+        "type": "string"
+      },
+      "declaration": {
+        "type": "string"
+      },
+      "created_at": {
+        "type": "datetime"
+      },
+      "updated_at": {
+        "type": "datetime"
+      },
+      "author": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "author"
+      },
+      "plan": {
+        "type": "integer",
+        "model": "plan",
+        "foreignKey": true,
+        "alias": "plan"
       },
       "id": {
         "type": "integer",
@@ -372,13 +451,14 @@
       "id": 1
     },
     "user": {
-      "id": 42
+      "id": 43
     },
     "action": {},
     "goal": {},
     "organization": {
       "id": 4
     },
-    "plan": {}
+    "plan": {},
+    "idea": {}
   }
 }

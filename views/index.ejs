@@ -1,55 +1,62 @@
-<div class="row">
-	<% flash.get('message').forEach(function (message) { %>
-		<div class="alert alert-danger">
-	  		<p><%= message %></p>
-		</div>
-	<%	}) %>
-	<div class="col-xs-6">
-		<h3>User Login</h3>
-		<form name ="login" action="/login" method="post">
-			<input type="hidden" value="user"name="user">
-			<div class="form-group">
-				<label>Email</label>
-				<input type="text" name="email" required>
-				<p ng-show="login.email.$touched && login.email.$invalid" class="help-block has-error">Please enter an email address</p>
+<% if( !req.session.user ) { %>
+	<div class="row">
+		<% flash.get('message').forEach(function (message) { %>
+			<div class="alert alert-danger">
+		  		<p><%= message %></p>
 			</div>
-			<div class="form-group">
-				<label>Password</label>
-				<input type="password" name="password" required>
-				<p ng-show="login.password.$touched && login.password.$invalid" class="help-block has-error">Please enter a password</p>
-			</div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Sign In</button>
-		</form>
-			<a role="button" class="btn btn-primary" href="/users/new">Register</a>
-		</div>
-		<h4>Or..</h4>
-		<div class="form-group">
-			<a href="/login/facebook" role="button" class="btn btn-info">Facebook Login</a>
-			<button class="btn btn-info" ng-click="uc.authenticate('linkedin')">Sign in with LinkedIn</button>
-		</div>
-		<div class="form-group">
-			<button class="btn btn-info" ng-click="uc.authenticate('twitter')">Sign in with Twitter</button>
-		</div>
-	</div>
-	<div class="col-xs-6">
-		<h3>Organization Login</h3>
-		<form name="login" action="/login" method="post">
-			<input type="hidden" name="user" value="org">
-			<div class="form-group">
-				<label>Email</label>
-				<input type="text" name="email">
-				<p ng-show="login.email.$touched && login.email.$invalid" class="help-block has-error">Please enter an email address</p>
-			</div>
-			<div class="form-group">
-				<label>Password</label>
-				<input type="password" name="password">
-				<p ng-show="login.password.$touched && login.password.$invalid" class="help-block has-error">Please enter a password</p>
-			</div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Sign In</button>
+		<%	}) %>
+		<div class="col-xs-6">
+			<h3>User Login</h3>
+			<form name ="login" action="/login" method="post">
+				<input type="hidden" value="user"name="user">
+				<div class="form-group">
+					<label>Email</label>
+					<input type="text" name="email" required>
+					<p ng-show="login.email.$touched && login.email.$invalid" class="help-block has-error">Please enter an email address</p>
+				</div>
+				<div class="form-group">
+					<label>Password</label>
+					<input type="password" name="password" required>
+					<p ng-show="login.password.$touched && login.password.$invalid" class="help-block has-error">Please enter a password</p>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Sign In</button>
 			</form>
-			<a role="button" class="btn btn-primary" href="/organizations/new">Register</a>
+				<a role="button" class="btn btn-primary" href="/users/new">Register</a>
 			</div>
+			<h4>Or..</h4>
+			<div class="form-group">
+				<a href="/login/facebook" role="button" class="btn btn-info">Facebook Login</a>
+				<button class="btn btn-info" ng-click="uc.authenticate('linkedin')">Sign in with LinkedIn</button>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-info" ng-click="uc.authenticate('twitter')">Sign in with Twitter</button>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<h3>Organization Login</h3>
+			<form name="login" action="/login" method="post">
+				<input type="hidden" name="user" value="org">
+				<div class="form-group">
+					<label>Email</label>
+					<input type="text" name="email">
+					<p ng-show="login.email.$touched && login.email.$invalid" class="help-block has-error">Please enter an email address</p>
+				</div>
+				<div class="form-group">
+					<label>Password</label>
+					<input type="password" name="password">
+					<p ng-show="login.password.$touched && login.password.$invalid" class="help-block has-error">Please enter a password</p>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Sign In</button>
+				</form>
+				<a role="button" class="btn btn-primary" href="/organizations/new">Register</a>
+				</div>
+		</div>
 	</div>
-</div>
+<% } else {
+%>
+	<div ng-controller="usersController as uc" ng-init="uc.init('<%= req.session.user.id %>')">
+	</div>
+<%}%>
+
