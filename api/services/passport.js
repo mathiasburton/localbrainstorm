@@ -120,18 +120,26 @@ passport.use(new LocalStrategy({
     }
     // if the user doesn't exist
     if(!user) {
-      return callback(null, false, {message: 'Incorrect email.'}, 'user');
+      return callback(null, false, {
+        message: 'Incorrect email.',
+        type: "user"
+      });
     }
     // if the user does exist, bcrypt the password
     bcrypt.compare(password, user.password, function (err,res) {
       if(!res){
-        return callback(null, false, {
-          message: 'Invalid password'
-        }, "user");
+        return callback(null, false, 
+        {
+          message: 'Invalid password',
+          type: "user"
+        });
       }
-      return callback(null, user, {
-        message: 'Logged In Successfully'
-      }, "user");
+      return callback(null, user, 
+      {
+        message: 'Logged In Successfully',
+        type: "user"
+      }
+      );
     });
   }); 
 
@@ -154,11 +162,11 @@ passport.use(new LocalStrategy({
       if(!res){
         return callback(null, false, {
           message: 'Invalid password'
-        }, "org");
+        });
       }
       return callback(null, org, {
         message: 'Logged In Successfully'
-      }, "org");
+      });
     });
   }); 
   }

@@ -35,10 +35,12 @@ module.exports.routes = {
   '/': {view: 'index'},
   'GET /users': {view: 'users/index'},
   'GET /users/new': {view: 'users/new'},
+  'GET /user': 'UsersController.getSession',
   'POST /users': 'UsersController.create',
 
-  'GET /organizations' : {view: 'organizations/index'},
-  'GET /organizations/new': {view: 'organizations/new'},
+  // 'GET /organizations' : {view: 'organizations/index'},
+  'GET /organizationSession': 'AuthController.organizationSession',
+  // 'GET /organizations/new': {view: 'organizations/new'},
   'POST /organizations': 'OrganizationController.create',
   
   'GET /login/facebook': 'AuthController.facebook',

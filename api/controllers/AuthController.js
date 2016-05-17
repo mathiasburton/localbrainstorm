@@ -9,23 +9,47 @@ var passport = require('passport'),
 
 module.exports = {
 
+	organizationSession: function(req, res) {
+		res.json(req.session.org);
+	},
+
+	userSession: function(req, res) {
+		res.json(req.session.user);
+	},
+
 	login: function (req, res) {
-		passport.authenticate('local',req.body.user, function(err, user, info, type) {
+		passport.authenticate('local', req.body.user, function(err, user, info, type) {
 			if(err || !user) {
-				req.addFlash("message", info.message);
-				return res.redirect("/"); 
+				err = {
+					exists: true,
+					message: info.message
+				};
+				return res.json(err); 
 				
 			} 
+			console.log(type);
 			req.login(user, type, function (err, message) {
 				if(err) {
-					res.send(err);
+					err = {
+						exists: true,
+						message: info.message
+					};
+					return res.json(err);
 				}
-				if(type == "user"){
+				if(info.type == "user"){
 					req.session.user = user;
-					return res.redirect('/users');
+					req.session.user.name = user.first_name + " " + user.last_name;
+					console.log(req.session.user + "req.session.user");
+					err = {
+						exists: false
+					};
+					return res.json(err);
 				} else {
-					req.session.org = user;
-					return res.redirect('/organizations');
+					req.session.org = user.id;
+					err = {
+						exists: false
+					};
+					return res.json(err);
 				}
 			
 			})
@@ -35,7 +59,7 @@ module.exports = {
 	logout: function (req, res) {
 		req.session.user = null;
 		req.session.org = null;
-		req.addFlash("message", "You have logged out");
+		// req.addFlash("message", "You have logged out");
 		return res.redirect('/');
 	},
 

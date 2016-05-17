@@ -1,0 +1,113 @@
+<div class="container">
+	<div class="row">
+	<!-- 	<div ng-if="flash.all()" class="col-xs-12">
+			<% flash.get(message).forEach(function (message) { %>
+				<div class="alert alert-danger">
+			  		<p><strong>Oops!</strong> <%= message %></p>
+					<a role="button" class="btn btn-default" href="/">Back to Log In</a>
+				</div>
+			<%	}) %>
+		</div> -->
+		<div ng-if="oc.err" class="alert alert-danger">
+		  	<p><strong>Oops!</strong> {{oc.err}}</p>
+		</div>
+		<div class="col-xs-6">
+			<h2>Register</h2>
+			<form name="register">
+				<div class = "form-group" ng-class="{'has-error':register.name.$invalid && register.name.$dirty}">
+					<label for="name">Name of Organization</label>
+					<input type="text" name="name" ng-model="oc.new_org.name"required>
+					<ul class="help-block has-error" ng-if="register.name.$dirty">
+						<li ng-show="register.name.$error.required">Name is required</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.email.$invalid && register.email.$dirty}">
+					<label for="email">Email:</label>
+					<input type="email" name="email" ng-model="oc.new_org.email" required>
+					<ul class="help-block has-error" ng-if="register.email.$dirty">
+						<li ng-show="register.email.$error.required">Email is required</li>
+						<li ng-show="register.email.$error.email">Not a valid email address</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.password.$invalid && password.$dirty}">
+					<label for="password">Password:</label>
+					<input name="password" type="password" ng-model="oc.new_org.password" ng-minlength="6" required>
+					<ul class="has-error help-block" ng-if="register.password.$dirty">
+						<li ng-show="register.password.$error.required">Password is required</li>
+						<li ng-show="register.password.$error.minlength">Password must be at least 6 characters.</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.confirmPassword.$invalid && confirmPassword.$dirty}">
+					<label for="confirmPassword">Confirm Password:</label>
+					<input match-password="password" type="password" ng-model="oc.new_org.confirmPassword" name="confirmPassword" required>
+					<ul class="help-block has-error" ng-if="register.confirmPassword.$dirty">
+						<li ng-show="register.confirmPassword.$error.required">Please retype password</li>
+						<li ng-show="register.confirmPassword.$error">Passwords must match.</li>
+					</ul>
+				</div>
+				<button class="btn btn-primary btn-lg" type="submit" ng-disabled="register.$invalid" ng-click="oc.create()">Create Account</button>
+			</form>
+		</div>
+<!-- 		<div class="col-xs-6">
+			<h2>Register</h2>
+			<form name="register" action ='/organizations' method = 'post'>
+				<div class = "form-group" ng-class="{'has-error':register.name.$invalid && register.name.$dirty}">
+					<label>Name of Organization</label>
+					<input type="text" name="name" required>
+					<ul class="help-block has-error" ng-if="register.name.$dirty">
+						<li ng-show="register.name.$error.required">Name is required</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.email.$invalid && register.email.$dirty}">
+					<label>Email:</label>
+					<input type="email" name="email" required>
+					<ul class="help-block has-error" ng-if="register.email.$dirty">
+						<li ng-show="register.email.$error.required">Email is required</li>
+						<li ng-show="register.email.$error.email">Not a valid email address</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.password.$invalid && password.$dirty}">
+					<label>Password:</label>
+					<input name="password" type="password" ng-minlength="6" required>
+					<ul class="help-block has-error" ng-if="register.password.$dirty">
+						<li ng-show="password.$error.required">Password is required</li>
+						<li ng-show="register.password.$error.minlength">Password must be at least 6 characters.</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.confirmPassword.$invalid && confirmPassword.$dirty}">
+					<label>Confirm Password:</label>
+					<input match-password="password" type="password" name="confirmPassword" required>
+					<ul class="help-block has-error" ng-if="register.confirmPassword.$dirty">
+						<li ng-show="register.confirmPassword.$error.required">Please retype password</li>
+						<li ng-show="register.confirmPassword.$error">Passwords must match.</li>
+					</ul>
+				</div>
+				<button class="btn btn-primary btn-lg" type="submit" ng-disabled="register.$invalid">Create Account</button>
+			</form>
+		</div> -->
+		<div class="col-xs-6">
+			<h2>Sign In</h2>
+			<form name="login">
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" name="email" ng-model="oc.new_session.email" required>
+					<div class="help-block has-error" ng-if="login.email.$dirty && login.email.$invalid">
+						<p ng-show="login.email.$error">Please enter an email</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" name="password" ng-model="oc.new_session.password" required>
+					<div class="help-block has-error" ng-if="login.password.$dirty && login.password.$invalid">
+						<p ng-show="login.password.$required">Please enter a password</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" ng-click="oc.createSession()">Sign In</button>
+			</form>
+		</div>
+
+	</div>
+</div>
+
+

@@ -1,0 +1,90 @@
+
+#brainstorm_background {
+	background-color: #FF4E00;
+}
+h1#brainstorm_text, h3#brainstorm_text {
+	color: white;
+	margin-left: 5%;
+}
+button#registerDropdown{
+	margin-left: 5%;
+	margin-top: 2%;
+}
+ul#registerDropdownMenu {
+	margin-left: 5%;
+}
+button#user_options, ul#user_options{
+	margin-left: 80%;
+	margin-right: 5%;
+	color: gray;
+	font-weight: bold;
+}
+img#options{
+	height:15%;
+	width:15%;
+}
+div#main_page_background {
+	background-color: white;
+	padding-left: 15%;
+	padding-right: 15%;
+}
+h1#main_page_text {
+	color: #FF4E00;
+	text-align: center;
+}
+img#arrow {
+	margin-left: 35%;
+}
+img#second_arrow{
+	margin-left: 40%;
+	margin-top: 5%;
+}
+div#problem{
+	margin-top:5%;
+	margin-bottom: 5%;
+	padding: 5%;
+}
+div#how_it_works, div#why_it_works{
+	background-color: white;
+}
+img#add_ideas {
+	margin-left: -5%;
+}
+img#analyze{
+	margin-left: -10%;
+}
+img#develop{
+	margin-top: -3%;
+	margin-left: -3%;
+}
+img#your_ideas, img#push_to_action{
+	margin-left: -3%;
+}
+img#cultivating_civics{
+	margin-left: -7%;
+}
+
+/*div#arrow_with_text{
+	background-color: #FF4E00;
+
+}*/
+/*div#arrow_with_text {
+	display: inline-block;
+	position: relative;
+	background: #FF4E00;
+	padding: 15px;
+}
+div#arrow_with_text:after {
+	content: '';
+	display: block;  
+	position: absolute;
+	left: 100%;
+	top: 50%;
+	margin-top: -10px;
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid orange;
+}*/

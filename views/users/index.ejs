@@ -1,4 +1,3 @@
 <!-- initialize function with page so user info from fb can be retrieved as angular variable (ng-if with javascript variable not working) -->
-<div ng-controller="usersController as uc" ng-init="uc.init('<%=req.session.user.id%>')">
-
+<div ng-controller="usersController as uc" ng-init="uc.init()">
 </div>

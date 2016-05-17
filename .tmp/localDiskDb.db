@@ -16,38 +16,20 @@
     "idea": [],
     "organization": [
       {
-        "name": "bologna",
-        "email": "meat@gmail.com",
-        "password": "$2a$10$VsOAJIgwOVd2XiUho2NYeOQbck5iwc4Jmx.HiJdjrBxAaphMQkgDu",
-        "createdAt": "2016-05-06T21:36:34.094Z",
-        "updatedAt": "2016-05-06T21:36:34.094Z",
-        "id": 1
+        "name": "test",
+        "email": "test@testing.com",
+        "password": "$2a$10$KdK2IszH.lr3gd.f0o4CQeDdmEMP/Eibz.AYJu/K7jKMqEQYU2/5O",
+        "createdAt": "2016-05-16T02:55:52.856Z",
+        "updatedAt": "2016-05-16T02:55:52.856Z",
+        "id": 8
       },
       {
-        "name": "bologna",
-        "email": "meat@gmail.com",
-        "password": "$2a$10$WwFhLt5TNNMeDbNCzZvtzeU0yuEqWXg1xfhBgJtu3tqSIJYQHQzja",
-        "createdAt": "2016-05-06T21:36:45.971Z",
-        "updatedAt": "2016-05-06T21:36:45.971Z",
-        "id": 2
-      },
-      {
-        "name": "FancyPants",
+        "name": "Local Brainstorm",
         "email": "maitlandm@gmail.com",
-        "password": "$2a$10$3D8QmvFO/0q55qEeqC987.y6lyCqrzIbVfsTHcvK535Mf7sczk1ya",
-        "confirmPassword": "password",
-        "createdAt": "2016-05-06T21:37:48.567Z",
-        "updatedAt": "2016-05-06T21:37:48.567Z",
-        "id": 3
-      },
-      {
-        "name": "FancyPants",
-        "email": "maitlandm@gmail.com",
-        "password": "$2a$10$2Fr2OUEzxhj/Srzo.ez5GuVRS4rTqYOp7c1hFxUudP0i1hH5yjJr6",
-        "confirmPassword": "password",
-        "createdAt": "2016-05-06T21:38:43.672Z",
-        "updatedAt": "2016-05-06T21:38:43.672Z",
-        "id": 4
+        "password": "$2a$10$Mzj8AmdUHM6oRdLHwykIBeaDubAKlttcWdahyzPS16.EDGBgy6Mqm",
+        "createdAt": "2016-05-16T03:09:20.763Z",
+        "updatedAt": "2016-05-16T03:09:20.763Z",
+        "id": 9
       }
     ],
     "plan": [],
@@ -168,6 +150,16 @@
         "createdAt": "2016-05-15T20:22:00.539Z",
         "updatedAt": "2016-05-15T20:22:00.539Z",
         "id": 43
+      },
+      {
+        "first_name": "test",
+        "last_name": "testing",
+        "email": "test@testing.com",
+        "password": "$2a$10$/dvwg55M/ecaLiMTJsivqux.wSSldkDDmdb/VAtoZFtqncZT3YKh.",
+        "admin_level": 0,
+        "createdAt": "2016-05-16T20:34:49.544Z",
+        "updatedAt": "2016-05-16T20:34:49.544Z",
+        "id": 44
       }
     ]
   },
@@ -451,12 +443,12 @@
       "id": 1
     },
     "user": {
-      "id": 43
+      "id": 44
     },
     "action": {},
     "goal": {},
     "organization": {
-      "id": 4
+      "id": 9
     },
     "plan": {},
     "idea": {}

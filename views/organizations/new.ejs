@@ -1,6 +1,52 @@
-<div class="container">
+<div class="container" ng-controller="organizationsController as oc">
 	<div class="row">
+		<div ng-if="flash.all()" class="col-xs-12">
+			<% flash.get('message').forEach(function (message) { %>
+				<div class="alert alert-danger">
+			  		<p><strong>Oops!</strong> <%= message %></p>
+					<a role="button" class="btn btn-default" href="/">Back to Log In</a>
+				</div>
+			<%	}) %>
+		</div>
 		<div class="col-xs-6">
+			<h2>Register</h2>
+			<form name="register">
+				<div class = "form-group" ng-class="{'has-error':register.name.$invalid && register.name.$dirty}">
+					<label for="name">Name of Organization</label>
+					<input type="text" name="name" ng-model="new_org.name"required>
+					<ul class="help-block has-error" ng-if="register.name.$dirty">
+						<li ng-show="register.name.$error.required">Name is required</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.email.$invalid && register.email.$dirty}">
+					<label for="email">Email:</label>
+					<input type="email" name="email" ng-model="new_org.email" required>
+					<ul class="help-block has-error" ng-if="register.email.$dirty">
+						<li ng-show="register.email.$error.required">Email is required</li>
+						<li ng-show="register.email.$error.email">Not a valid email address</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.password.$invalid && password.$dirty}">
+					<label for="password">Password:</label>
+					<input name="password" type="password" ng-model="new_org.password" ng-minlength="6" required>
+					<ul class="has-error help-block" ng-if="register.password.$dirty">
+						<li ng-show="register.password.$error.required">Password is required</li>
+						<li ng-show="register.password.$error.minlength">Password must be at least 6 characters.</li>
+					</ul>
+				</div>
+				<div class="form-group" ng-class="{'has-error':register.confirmPassword.$invalid && confirmPassword.$dirty}">
+					<label for="confirmPassword">Confirm Password:</label>
+					<input match-password="password" type="password" ng-model="new_org.confirmPassword" name="confirmPassword" required>
+					<ul class="help-block has-error" ng-if="register.confirmPassword.$dirty">
+						<li ng-show="register.confirmPassword.$error.required">Please retype password</li>
+						<li ng-show="register.confirmPassword.$error">Passwords must match.</li>
+					</ul>
+				</div>
+				<button class="btn btn-primary btn-lg" type="submit" ng-disabled="register.$invalid" ng-click="oc.create(new_org)">Create Account</button>
+			</form>
+		</div>
+<!-- 		<div class="col-xs-6">
+			<h2>Register</h2>
 			<form name="register" action ='/organizations' method = 'post'>
 				<div class = "form-group" ng-class="{'has-error':register.name.$invalid && register.name.$dirty}">
 					<label>Name of Organization</label>
@@ -35,14 +81,31 @@
 				</div>
 				<button class="btn btn-primary btn-lg" type="submit" ng-disabled="register.$invalid">Create Account</button>
 			</form>
-		</div>
+		</div> -->
 		<div class="col-xs-6">
-			<% flash.get('message').forEach(function (message) { %>
-				<div class="alert alert-danger">
-			  		<p><strong>Oops!</strong> <%= message %></p>
-					<a role="button" class="btn btn-default" href="/">Back to Log In</a>
+			<h2>Sign In</h2>
+			<form name="login" action="/login" method="post">
+				<input type="hidden" name="user" value="org">
+				<div class="form-group">
+					<label>Email</label>
+					<input type="text" name="email" required>
+					<div class="help-block has-error" ng-if="login.email.$dirty && login.email.$invalid">
+						<p ng-show="login.email.$error">Please enter a email</p>
+					</div>
 				</div>
-			<%	}) %>
+				<div class="form-group">
+					<label>Password</label>
+					<input type="password" name="password" required>
+					<div class="help-block has-error" ng-if="login.password.$dirty && login.password.$invalid">
+						<p ng-show="login.password.$required">Please enter a password</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Sign In</button>
+			</form>
 		</div>
+
 	</div>
 </div>
+
+

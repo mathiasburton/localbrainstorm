@@ -1,8 +1,21 @@
 brainstormModule.factory("userFactory", function($http) {
 	return {
-		factory.index = function(id, callback) {
-			$http.get("/users", id).success(function(user) {
-				callback(user);
+
+		getSession: function(callback) {
+			$http.get("/user").success(function (data) {
+				callback(data);
+			})
+		},
+
+		create: function(user, callback) {
+			$http.post("/users", user).success(function (err) {
+				callback(err);
+			})
+		},
+
+		createSession: function(user, callback) {
+			$http.post('/login', user).success(function (err) {
+				callback(err);
 			})
 		}
 
