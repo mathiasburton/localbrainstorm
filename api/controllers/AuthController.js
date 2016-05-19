@@ -45,7 +45,7 @@ module.exports = {
 					};
 					return res.json(err);
 				} else {
-					req.session.org = user.id;
+					req.session.org = user;
 					err = {
 						exists: false
 					};

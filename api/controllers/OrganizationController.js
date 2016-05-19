@@ -38,7 +38,7 @@ module.exports = {
 							} else {
 								console.log(org);
 								// save the organization data in session
-								req.session.org = org.id;
+								req.session.org = org;
 								err = {
 									exists: false,
 									org: org

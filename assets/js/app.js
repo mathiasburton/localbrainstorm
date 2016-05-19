@@ -32,6 +32,12 @@ brainstormModule.config(function ($routeProvider){
 		controllerAs: 'uc'
 	})
 
+	.when('/issues', {
+		templateUrl: '/templates/issues/index.html',
+		controller: 'mainController',
+		controllerAs: 'mc'
+	})
+
 	.when('/', {
 		templateUrl: '/templates/index.html',
 		controller: 'mainController',

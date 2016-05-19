@@ -9,6 +9,7 @@
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/issues.css">
     <link rel="stylesheet" href="/styles/layout.css">
     <!--STYLES END-->
     <script src="/js/dependencies/jquery-1.12.3.min.js"></script>
@@ -33,53 +34,48 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
-    <!-- END FACEBOOK LOGIC -->
-      <!-- <div class="page-header">
-        <p>Hello</p>
-      </div> -->
-      <div class="jumbotron" id="brainstorm_background">
-        <!-- Check if user is logged in -->
-        <% if( req.session.user) {
-        %>
+    <div class="jumbotron" id="brainstorm_background">
+      <!-- Check if user is logged in -->
+      <% if( req.session.user) { %>
+      <div class="dropdown" uib-dropdown is-open="status.isopen2">
+        <button id="user_options" class="btn btn-default" type="button" uib-dropdown-toggle ng-disabled="disabled"><%=req.session.user.name %><span class="caret"></span></button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="user_options" id="user_options">
+          <li role="menuitem" id="user_options"><a href="/logout">Log Out</a></li>
+        </ul>
+      </div>
+      <!-- Check if organization is logged in -->
+      <% } if( req.session.org ) { %>
         <div class="dropdown" uib-dropdown is-open="status.isopen2">
-          <button id="user_options" class="btn btn-default" type="button" uib-dropdown-toggle ng-disabled="disabled"><%=req.session.user.name %><img id="options" ng-src="/../images/options.png"></button>
-          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="user_options" id="user_options">
-            <li role="menuitem" id="user_options"><a href="/logout">Log Out</a></li>
+        <button id="user_options" class="btn btn-default" type="button" uib-dropdown-toggle ng-disabled="disabled"><%=req.session.org.name %><span class="caret"></span></button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="user_options" id="user_options">
+          <li role="menuitem" id="user_options"><a href="/logout">Log Out</a></li>
+        </ul>
+      </div>
+      <% } %>
+
+      <h1 id="brainstorm_text">Local Brainstorm</h1>
+      <h3 id="brainstorm_text">public idea management and agitation</h3>
+      
+      <% if( !req.session.org && !req.session.user) { %>
+        <div class="dropdown" uib-dropdown is-open="status.isopen1">
+          <button class="btn btn-default" type="button" id="registerDropdown" uib-dropdown-toggle ng-disabled="disabled">
+            Log In & Registration...
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="registerDropdownMenu" id="registerDropdownMenu">
+            <li role="menuitem"><a href="#/users/new">...for Users</a></li>
+            <li role="menuitem"><a href="#/organizations/new">...for Organizations</a></li>
           </ul>
         </div>
-        <%
-        } if( req.session.org ) {
-        %>
-          <a href="/logout" role="button" class="btn btn-default">Log Out</a>
-        <% } %>
-        <h1 id="brainstorm_text">Local Brainstorm</h1>
-        <h3 id="brainstorm_text">public idea management and agitation</h3>
-        
-        <% if( !req.session.org && !req.session.user) { %>
-          <div class="dropdown" uib-dropdown is-open="status.isopen1">
-            <button class="btn btn-default" type="button" id="registerDropdown" uib-dropdown-toggle ng-disabled="disabled">
-              Log In & Registration...
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="registerDropdownMenu" id="registerDropdownMenu">
-              <li role="menuitem"><a href="#/users/new">...for Users</a></li>
-              <li role="menuitem"><a href="#/organizations/new">...for Organizations</a></li>
-            </ul>
-          </div>
-        <%
-        }
-        %>
-
-        <!-- Check if Org is logged in -->
-        <!-- <div class="dropdown" uib-dropdown is-open="status.isopen2">
-          <button class="btn btn-default" type="button" id="issuesDropdownMenu" uib-dropdown-toggle ng-disabled="disabled">
-            Issues
-            <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="issuesDropdownMenu">
-              <li role="menuitem"><a href="#/homelessness">Homelessness</a></li>
-            </ul>
-        </div> -->
+      <% } %>
+    <!--   <div ng-controller="mainController">
+        <button type="button" class="btn btn-default" id="nav" ng-click="isCollapsed = !isCollapsed">nav</button>
+        <div uib-collapse="isCollapsed">
+          <div class="well well-lg">Stuff</div>
+        </div>
+      </div> -->
+      <!-- <a href="#/issues" id="issues" class="btn btn-default">Issues</a>
+      <a href="#/" id="home" class="btn btn-default">Home</a> -->
       </div>
       <div class="container" ng-view></div>
       <%- body %>

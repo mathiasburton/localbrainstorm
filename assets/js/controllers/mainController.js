@@ -1,4 +1,4 @@
-brainstormModule.controller("mainController", function() {
+brainstormModule.controller("mainController", function($scope) {
 
 	var ctrl = this;
 
@@ -6,5 +6,4 @@ brainstormModule.controller("mainController", function() {
 		$("html, body").animate({ scrollTop:
 			$(anchor).offset().top }, 1000);
 	};
-
 })

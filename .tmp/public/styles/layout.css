@@ -6,7 +6,7 @@ h1#brainstorm_text, h3#brainstorm_text {
 	color: white;
 	margin-left: 5%;
 }
-button#registerDropdown{
+button#registerDropdown, a#issues, a#home{
 	margin-left: 5%;
 	margin-top: 2%;
 }
@@ -14,14 +14,10 @@ ul#registerDropdownMenu {
 	margin-left: 5%;
 }
 button#user_options, ul#user_options{
-	margin-left: 80%;
+	margin-left: 75%;
 	margin-right: 5%;
 	color: gray;
 	font-weight: bold;
-}
-img#options{
-	height:15%;
-	width:15%;
 }
 div#main_page_background {
 	background-color: white;
