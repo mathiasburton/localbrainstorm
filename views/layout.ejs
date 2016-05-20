@@ -36,7 +36,7 @@
     </script>
     <div class="jumbotron" id="brainstorm_background">
       <!-- Check if user is logged in -->
-      <% if( req.session.user) { %>
+      <% if( req.session.user) { %> 
       <div class="dropdown" uib-dropdown is-open="status.isopen2">
         <button id="user_options" class="btn btn-default" type="button" uib-dropdown-toggle ng-disabled="disabled"><%=req.session.user.name %><span class="caret"></span></button>
         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="user_options" id="user_options">

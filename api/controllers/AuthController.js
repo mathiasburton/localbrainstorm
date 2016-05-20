@@ -87,10 +87,10 @@ module.exports = {
 			if(err) {
 				console.log(err);
 				req.addFlash("message", err);
-				return res.redirect("/");
+				return res.redirect("/#/users/new");
 			} else {
 				req.session.user = user;
-				return res.redirect("/");
+				return res.redirect("/#/users");
 			}
 		})(req, res, callback);
 	}

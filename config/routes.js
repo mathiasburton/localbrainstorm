@@ -39,14 +39,18 @@ module.exports.routes = {
   'POST /users': 'UsersController.create',
   'GET /userSession': 'UsersController.getSession',
   // 'GET /organizations' : {view: 'organizations/index'},
-  'GET /organizationSession': 'AuthController.organizationSession',
+  // 'GET /organizationSession': 'AuthController.organizationSession',
   // 'GET /organizations/new': {view: 'organizations/new'},
   'POST /organizations': 'OrganizationController.create',
   
   'GET /login/facebook': 'AuthController.facebook',
   'GET /auth/facebook/callback': 'AuthController.facebook/callback',
   'GET /logout': 'AuthController.logout',
-  'POST /login': 'AuthController.login'    
+  'POST /login': 'AuthController.login',
+
+  'POST /ideas': 'IdeasController.create',
+  'GET /ideas': 'IdeasController.index'
+
   
   /***************************************************************************
   *                                                                          *

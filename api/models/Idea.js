@@ -80,6 +80,10 @@ module.exports = {
 
     facebookAuthor : {
       model: "FacebookUser"
+    },
+
+    issue : {
+      model: "issue"
     }
 
   }

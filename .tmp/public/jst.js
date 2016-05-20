@@ -10,6 +10,16 @@ __p += '<div class="jumbotron" id="main_page_background">\n\t<h1 id="main_page_t
 return __p
 };
 
+this["JST"]["assets/templates/issues/homelessness.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div ng-controller="ideasController as ic">\n\t<div ng-if="ic.err" class="alert alert-danger">\n\t\t<p><strong>Oops!</strong> {{ic.err}}</p>\n\t</div>\n\t<div class = "row"  ng-if="ic.user">\n\t\t<div class="col-xs-12">\n\t\t\t<form name="idea">\n\t\t\t\t<div class="form-group">\n\t\t\t\t\t<label for="title">Title</label>\n\t\t\t\t\t<input type="text" name="title" ng-model="ic.new_idea.title" class="form-control" required>\n\t\t\t\t</div>\n\t\t\t\t<div class="form-group">\n\t\t\t\t\t<label for="content">What\'s your idea?</label>\n\t\t\t\t\t<textarea rows="4" cols="50"name="content" ng-model="ic.new_idea.content" class="form-control" required></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class="form-group">\n\t\t\t\t\t<button class="btn btn-default" ng-click="ic.create()">Submit Idea!</button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n\t<div ng-repeat="idea in ic.ideas">\n\t\t{{idea.title}}\n\t\t{{idea.author.first_name}}\n\t</div>\n</div>\n\n';
+
+}
+return __p
+};
+
 this["JST"]["assets/templates/issues/index.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
@@ -61,7 +71,7 @@ this["JST"]["assets/templates/users/index.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div ng-init="uc.getSession()"></div>\n<h1>Hello {{uc.user.name}}</h1>\n<div ng-if="uc.user.ideas">\n\t<h1>Your ideas:</h1>\n</div>\n<div ng-if="!uc.user.ideas">\n\t<h2>You haven\'t posted any ideas yet. Pick an issue to get started:</h2>\n\t<a href="#/issues/homelessness" class="btn btn-default">Homelessness</a>\n</div>\n<!-- <div ng-controller="ideasController as ic">\n\n</div> -->';
+__p += '<h1>Hello {{uc.user.name}}</h1>\n<div ng-if="uc.user.ideas">\n\t<h1>Your ideas:</h1>\n</div>\n<div ng-if="!uc.user.ideas">\n\t<h2>You haven\'t posted any ideas yet. Pick an issue to get started:</h2>\n\t<a href="#/issues/homelessness" class="btn btn-default">Homelessness</a>\n</div>\n<!-- <div ng-controller="ideasController as ic">\n\n</div> -->';
 
 }
 return __p

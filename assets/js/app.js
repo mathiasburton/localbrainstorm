@@ -38,6 +38,10 @@ brainstormModule.config(function ($routeProvider){
 		controllerAs: 'mc'
 	})
 
+	.when('/issues/homelessness', {
+		templateUrl: '/templates/issues/homelessness.html'
+	})
+
 	.when('/', {
 		templateUrl: '/templates/index.html',
 		controller: 'mainController',

@@ -13,7 +13,26 @@
       }
     ],
     "goal": [],
-    "idea": [],
+    "idea": [
+      {
+        "title": "Well I was thinking..",
+        "content": "Duhh...",
+        "implemented": false,
+        "issue": 1,
+        "author": 61,
+        "createdAt": "2016-05-20T03:11:30.489Z",
+        "updatedAt": "2016-05-20T03:11:30.489Z",
+        "id": 1
+      }
+    ],
+    "issue": [
+      {
+        "name": "homelessness",
+        "createdAt": "2016-05-20T00:30:26.352Z",
+        "updatedAt": "2016-05-20T00:30:26.352Z",
+        "id": 1
+      }
+    ],
     "organization": [
       {
         "name": "test",
@@ -44,6 +63,16 @@
         "createdAt": "2016-05-20T00:00:34.048Z",
         "updatedAt": "2016-05-20T00:00:34.048Z",
         "id": 60
+      },
+      {
+        "first_name": "Lilliput",
+        "last_name": "Fishbreath",
+        "email": "lilliput@gmail.com",
+        "password": "$2a$10$RqqI8FRiL2gQO77BcSonF.D.3uLWccBUwKQbIH1w6jX.JVPf5RDHq",
+        "admin_level": 0,
+        "createdAt": "2016-05-20T00:15:05.718Z",
+        "updatedAt": "2016-05-20T00:15:05.718Z",
+        "id": 61
       }
     ]
   },
@@ -200,6 +229,29 @@
         "foreignKey": true,
         "alias": "facebookAuthor"
       },
+      "issue": {
+        "type": "integer",
+        "model": "issue",
+        "foreignKey": true,
+        "alias": "issue"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "issue": {
+      "name": {
+        "type": "string"
+      },
       "id": {
         "type": "integer",
         "autoIncrement": true,
@@ -279,6 +331,12 @@
         "foreignKey": true,
         "alias": "organization"
       },
+      "issue": {
+        "type": "integer",
+        "model": "issue",
+        "foreignKey": true,
+        "alias": "issue"
+      },
       "id": {
         "type": "integer",
         "autoIncrement": true,
@@ -310,6 +368,12 @@
         "model": "plan",
         "foreignKey": true,
         "alias": "plan"
+      },
+      "issue": {
+        "type": "integer",
+        "model": "issue",
+        "foreignKey": true,
+        "alias": "issue"
       },
       "id": {
         "type": "integer",
@@ -365,7 +429,7 @@
       "id": 1
     },
     "user": {
-      "id": 60
+      "id": 61
     },
     "action": {},
     "goal": {},
@@ -373,7 +437,12 @@
       "id": 9
     },
     "plan": {},
-    "idea": {},
-    "plan_component": {}
+    "idea": {
+      "id": 1
+    },
+    "plan_component": {},
+    "issue": {
+      "id": 1
+    }
   }
 }

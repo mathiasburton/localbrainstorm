@@ -3,7 +3,7 @@ brainstormModule.controller("usersController", function(userFactory, $location, 
 	var ctrl = this;
 
 	this.init = function() {
-			$location.path('/users')
+		$window.location.href="http://" + $window.location.host + "/#/users";
 	}
 	
 	this.create = function() {
@@ -21,7 +21,7 @@ brainstormModule.controller("usersController", function(userFactory, $location, 
 				ctrl.err = err.message;
 				console.log(ctrl.err);
 			} else {
-				$window.location.href = "http://" + $window.location.host + "/";
+				$window.location.href = "http://" + $window.location.host + "/users";
 			}
 		})
 		this.new_user = {};
@@ -38,16 +38,18 @@ brainstormModule.controller("usersController", function(userFactory, $location, 
 				ctrl.err = err.message;
 			} else {
 				// this.user = err.user;
-				$window.location.href = "http://" + $window.location.host + "/";
+				$window.location.href = "http://" + $window.location.host + "/users";
 			}
 		})
 	this.new_session = {};
-	},
+	}
 
-	this.getSession = function() {
+	getSession = function() {
 		userFactory.getSession(function (user) {
 			ctrl.user = user;
+			console.log(ctrl.user);
 		})
 	}
+	getSession();
 })
 

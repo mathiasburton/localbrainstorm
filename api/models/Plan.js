@@ -38,6 +38,10 @@ module.exports = {
     plan_components : {
       collection: "plan_component",
       via: "plan"
+    },
+
+    issue : {
+      model: "issue"
     }
   }
 };

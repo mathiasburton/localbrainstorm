@@ -1,18 +1,2 @@
-<% if( !req.session.user && !req.session.org) { %>
-	<div class="row">
-		<% flash.get('message').forEach(function (message) { %>
-			<div class="alert alert-danger">
-		  		<p><%= message %></p>
-			</div>
-		<%	}) %>
-	</div>
-<% } else {
-	if( req.session.user ) { %>
-	<div ng-controller="usersController as uc" ng-init="uc.init('<%= req.session.user.id %>')">
-	</div>
-	<%} else { %>
-		<div ng-controller="organizationsController as oc" ng-init="oc.init('<%= req.session.org.id %>')">
-	</div>
-	<% } 
-}%>
+
 

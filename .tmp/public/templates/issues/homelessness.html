@@ -1,0 +1,27 @@
+<div ng-controller="ideasController as ic">
+	<div ng-if="ic.err" class="alert alert-danger">
+		<p><strong>Oops!</strong> {{ic.err}}</p>
+	</div>
+	<div class = "row"  ng-if="ic.user">
+		<div class="col-xs-12">
+			<form name="idea">
+				<div class="form-group">
+					<label for="title">Title</label>
+					<input type="text" name="title" ng-model="ic.new_idea.title" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="content">What's your idea?</label>
+					<textarea rows="4" cols="50"name="content" ng-model="ic.new_idea.content" class="form-control" required></textarea>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-default" ng-click="ic.create()">Submit Idea!</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div ng-repeat="idea in ic.ideas">
+		{{idea.title}}
+		{{idea.author.first_name}}
+	</div>
+</div>
+
