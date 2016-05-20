@@ -21,7 +21,6 @@ brainstormModule.controller("usersController", function(userFactory, $location, 
 				ctrl.err = err.message;
 				console.log(ctrl.err);
 			} else {
-				ctrl.user = err.user;
 				$window.location.href = "http://" + $window.location.host + "/";
 			}
 		})
@@ -38,11 +37,17 @@ brainstormModule.controller("usersController", function(userFactory, $location, 
 			if(err.exists == true) {
 				ctrl.err = err.message;
 			} else {
-				this.user = err.user;
+				// this.user = err.user;
 				$window.location.href = "http://" + $window.location.host + "/";
 			}
 		})
 	this.new_session = {};
+	},
+
+	this.getSession = function() {
+		userFactory.getSession(function (user) {
+			ctrl.user = user;
+		})
 	}
 })
 

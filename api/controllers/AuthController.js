@@ -9,13 +9,13 @@ var passport = require('passport'),
 
 module.exports = {
 
-	organizationSession: function(req, res) {
-		res.json(req.session.org);
-	},
+	// organizationSession: function(req, res) {
+	// 	res.json(req.session.org);
+	// },
 
-	userSession: function(req, res) {
-		res.json(req.session.user);
-	},
+	// userSession: function(req, res) {
+	// 	res.json(req.session.user);
+	// },
 
 	login: function (req, res) {
 		passport.authenticate('local', req.body.user, function(err, user, info, type) {
@@ -37,15 +37,26 @@ module.exports = {
 					return res.json(err);
 				}
 				if(info.type == "user"){
-					req.session.user = user;
-					req.session.user.name = user.first_name + " " + user.last_name;
-					console.log(req.session.user + "req.session.user");
+					req.session.user = {
+						'name': user.first_name + " " + user.last_name,
+						'id': user.id,
+						'email': user.email
+					}
 					err = {
 						exists: false
 					};
 					return res.json(err);
 				} else {
-					req.session.org = user;
+					req.session.org = {
+						'name': user.name,
+						'email': user.email,
+						'street': user.street,
+						'city': user.city,
+						'state': user.state,
+						'zip': user.zip,
+						'mission': user.mission,
+						'content': user.content
+					};
 					err = {
 						exists: false
 					};

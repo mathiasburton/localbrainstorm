@@ -1,5 +1,5 @@
 /**
- * Plan.js
+ * Plan_component.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,9 +8,9 @@
 module.exports = {
 
   attributes: {
-
   	title : {
-  		type: 'text'
+  		type: 'string',
+  		required: true
   	},
 
   	content : {
@@ -25,20 +25,10 @@ module.exports = {
   		type: 'datetime'
   	},
 
-  	organization : {
-      model: 'organization'
-    },
+  	plan : {
+  		model: 'plan'
+  	}
 
-    // reference to ideas
-    ideas : {
-      collection: "idea",
-      via: "plan"
-    },
-    // reference to plan_components
-    plan_components : {
-      collection: "plan_component",
-      via: "plan"
-    }
   }
 };
 

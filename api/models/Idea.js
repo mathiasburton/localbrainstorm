@@ -76,7 +76,11 @@ module.exports = {
   	// reference to plans
   	plan : {
   		model: "plan"
-  	}
+  	},
+
+    facebookAuthor : {
+      model: "FacebookUser"
+    }
 
   }
 };

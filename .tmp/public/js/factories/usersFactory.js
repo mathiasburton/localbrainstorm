@@ -2,7 +2,7 @@ brainstormModule.factory("userFactory", function($http) {
 	return {
 
 		getSession: function(callback) {
-			$http.get("/user").success(function (data) {
+			$http.get("/userSession").success(function (data) {
 				callback(data);
 			})
 		},

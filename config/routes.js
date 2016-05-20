@@ -37,7 +37,7 @@ module.exports.routes = {
   'GET /users/new': {view: 'users/new'},
   'GET /user': 'UsersController.getSession',
   'POST /users': 'UsersController.create',
-
+  'GET /userSession': 'UsersController.getSession',
   // 'GET /organizations' : {view: 'organizations/index'},
   'GET /organizationSession': 'AuthController.organizationSession',
   // 'GET /organizations/new': {view: 'organizations/new'},

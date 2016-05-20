@@ -1,4 +1,12 @@
-<!-- <div ng-init="uc.init()"></div>
- -->
-<h1>Helloo</h1>
-<h1>{{uc.user.first_name}}</h1>
+<div ng-init="uc.getSession()"></div>
+<h1>Hello {{uc.user.name}}</h1>
+<div ng-if="uc.user.ideas">
+	<h1>Your ideas:</h1>
+</div>
+<div ng-if="!uc.user.ideas">
+	<h2>You haven't posted any ideas yet. Pick an issue to get started:</h2>
+	<a href="#/issues/homelessness" class="btn btn-default">Homelessness</a>
+</div>
+<!-- <div ng-controller="ideasController as ic">
+
+</div> -->

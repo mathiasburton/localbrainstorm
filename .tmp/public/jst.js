@@ -61,7 +61,7 @@ this["JST"]["assets/templates/users/index.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<!-- <div ng-init="uc.init()"></div>\n -->\n<h1>Helloo</h1>\n<h1>{{uc.user.first_name}}</h1>';
+__p += '<div ng-init="uc.getSession()"></div>\n<h1>Hello {{uc.user.name}}</h1>\n<div ng-if="uc.user.ideas">\n\t<h1>Your ideas:</h1>\n</div>\n<div ng-if="!uc.user.ideas">\n\t<h2>You haven\'t posted any ideas yet. Pick an issue to get started:</h2>\n\t<a href="#/issues/homelessness" class="btn btn-default">Homelessness</a>\n</div>\n<!-- <div ng-controller="ideasController as ic">\n\n</div> -->';
 
 }
 return __p

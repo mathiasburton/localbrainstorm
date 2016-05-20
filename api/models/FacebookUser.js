@@ -26,6 +26,12 @@ module.exports = {
     email : {
     	type: 'string',
     	required : true
+    },
+
+    // reference to ideas
+    ideas : {
+        collection: 'idea',
+        via: 'facebookAuthor'
     }
 
   }
